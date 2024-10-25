@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+        .all-pages {
+
+        }
+        /* Home Page */
+        .container-home>section {
+            display: flex;
+            justify-content: center;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .container-home>section>div {
+            width: 300px;
+            margin-left: 30px;
+            margin-right: 30px;
+            margin-top: 100px;
+        }
+
+        /* Customer Page */
+        .container-customer {
+            margin-top: 100px;
+        }
+
+        .box-container-customer {
+            margin-left: -80px;
+            margin-right: 20px;
+            justify-content: center;
+            width: 1450px;
+            background-color: red;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Navigation bar-->
+<nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">POS SYSTEM</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span id="home-nav" class="nav-link active" >Home</span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#Customer">Customers</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#Item">Items</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#Order">Orders</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Others
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="d-flex" role="search">
+                <button class="btn btn-outline-success" type="submit" style="position: absolute; right: 100px">Log out</button>
+                <button class="btn btn-outline-success" type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<!--Home Page-->
+<section class="container-home">
+    <section>
+        <div class="card">
+            <img src="../HTML_CSS_Assignment_06/assets/icon/customers.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title" style="font-size: 28px; font-weight: bold">Customer Count</h5>
+                <p class="card-text" style="font-weight: bold; font-size: 40px">10</p>
+                <!--<a href="#" class="btn btn-primary" style="width: 150px;">Customer</a>-->
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="../HTML_CSS_Assignment_06/assets/icon/item.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title" style="font-size: 28px; font-weight: bold">Item Count</h5>
+                <p class="card-text" style="font-weight: bold; font-size: 40px">10</p>
+                <!--<a href="#" class="btn btn-primary" style="width: 150px;">Customer</a>-->
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="../HTML_CSS_Assignment_06/assets/icon/order.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title" style="font-size: 28px; font-weight: bold">Order Count</h5>
+                <p class="card-text" style="font-weight: bold; font-size: 40px">10</p>
+                <!--<a href="#" class="btn btn-primary" style="width: 150px;">Customer</a>-->
+            </div>
+        </div>
+    </section>
+
+</section>
+
+<section class="all-pages">
+
+    <!--Customer Page-->
+   <section class="container-customer" id="Customer">
+       <div class="container">
+           <br><br>
+           <section>
+               <div class="form-floating mb-3" style="width: 112%; font-size: 40px; font-weight: 600; margin-left: 20px">
+                   <a class="navbar-brand" href="#">
+                       <img src="../HTML_CSS_Assignment_06/assets/icon/customers.png" alt="customer" style="width: 60px; height: 60px;">
+                       Customer
+                   </a>
+               </div>
+           </section>
+
+
+           <section class="box-container-customer">
+               <div class="search">
+                   <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+
+                       <div class="card text-bg-dark mb-3" style="max-width: 18rem;">
+                           <div class="card-header" style="font-size: 20px; background-color: #222223">Customer Search</div>
+                           <div class="card-body" style="background-color: #ffffff">
+                               <div class="mb-3">
+                                   <input type="email" class="form-control" id="email" placeholder="Input Name/NIC/Tp Here">
+                               </div>
+                               <div>
+                                   <button class="btn btn-outline-success" type="submit">Search</button>
+                                   <select class="form-select" id="select-option" style="width: 175px; position: relative; top: -38px; left: 80px" required>
+                                       <option selected disabled value="">Name</option>
+                                       <option>Name 01</option>
+                                       <option>Name 02</option>
+                                   </select>
+                               </div>
+
+                           </div>
+                       </div>
+                       <br>
+
+                       <div class="main-btn" style="display: flex; position: relative; top: -230px; left: 1000px">
+                           <div id="addNewCustomer" style="margin-right: 10px;">
+                               <a href="#Customer#AddCus">
+                                   <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">Add New Customer</button>
+                               </a>
+                           </div>
+
+                           <div  id="viewAllCustomer" >
+                               <button type="button" class="btn btn-warning">View All Customers</button>
+                           </div>
+                       </div>
+
+                       <div>
+                           <button type="button" class="btn btn-danger">Delete</button>
+                           <button type="button" class="btn btn-info">Details</button>
+                           <button type="button" class="btn btn-success">Clear</button>
+                       </div>
+                       <br> <br> <br>
+
+                       <div >
+                           <table class="table table-striped table-hover">
+                               <thead>
+                               <tr>
+                                   <th scope="col">Customer ID</th>
+                                   <th scope="col">Customer Name</th>
+                                   <th scope="col">Address</th>
+                                   <th scope="col">Salary</th>
+                               </tr>
+                               </thead>
+                               <tbody>
+                               <tr>
+                                   <th scope="row">C001</th>
+                                   <td>Oshi</td>
+                                   <td>Kalutara</td>
+                                   <td>10000.00</td>
+                               </tr>
+                               <tr>
+                                   <th scope="row">C002</th>
+                                   <td>Dinu</td>
+                                   <td>Panadura</td>
+                                   <td>20000.00</td>
+                               </tr>
+                               <tr>
+                                   <th scope="row">C003</th>
+                                   <td>Niku</td>
+                                   <td>Pahandi</td>
+                                   <td>30000.00</td>
+                               </tr>
+                               </tbody>
+                           </table>
+                       </div>
+                   </div>
+               </div>
+
+               <div class="modal fade" id="AddNewCustomerPage" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+                   <div class="modal-dialog modal-dialog-centered">
+                       <div class="modal-content">
+                           <div class="modal-header" style="background-color: #222223; color: white">
+                               <h5 class="modal-title" id="exampleModalLabelCustomer">Add New Customer</h5>
+                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: red"></button>
+                           </div>
+                           <div class="modal-body">
+                               <div class="mb-3">
+                                   <label for="exampleFormControlInput1" class="form-label"></label>
+                                   <h6 class="UnP">Customer ID</h6>
+                                   <input type="text" class="form-control" id="customerId" placeholder="Customer ID">
+                               </div>
+                               <div class="mb-3">
+                                   <label for="exampleFormControlInput1" class="form-label"></label>
+                                   <h6 class="UnP">Customer Name</h6>
+                                   <input type="text" class="form-control" id="customerName" placeholder="Customer Name">
+                               </div>
+                               <div class="mb-3">
+                                   <label for="exampleFormControlInput1" class="form-label"></label>
+                                   <h6 class="UnP">Address</h6>
+                                   <input type="text" class="form-control" id="customerAddress" placeholder="Address">
+                               </div>
+                               <div class="mb-3">
+                                   <label for="exampleFormControlInput1" class="form-label"></label>
+                                   <h6 class="UnP">Customer Salary</h6>
+                                   <input type="text" class="form-control" id="customerSalary" placeholder="Customer Salary">
+                               </div>
+                           </div>
+                           <div class="modal-footer">
+                               <button type="button" class="btn btn-danger">Save</button>
+                               <button type="button" class="btn btn-warning">ReNew</button>
+                               <button type="button" class="btn btn-info">Close</button>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </section>
+
+       </div>
+   </section>
+
+    <!-- Item Page -->
+    <section class="container-item" id="Item">
+        <div  class="container" >
+            <br><br>
+            <section>
+                <div class="form-floating mb-3" style="position: relative">
+                    <div class="form-floating mb-3" style="width: 112%; font-size: 40px; font-weight: 600; margin-left: 20px">
+                        <a class="navbar-brand" href="#">
+                            <img src="../HTML_CSS_Assignment_06/assets/icon/customers.png" alt="customer" style="width: 60px; height: 60px;">
+                            Item
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+
+            <section style="width: 1440px; margin-left: -80px; margin-right: 20px; justify-content: center;">
+                <div class="search" style="width: 100%; height: 100%">
+                    <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+
+                        <div class="card text-bg-dark mb-3" style="max-width: 18rem;">
+                            <div class="card-header" style="font-size: 20px; background-color: #222223">Item Search</div>
+                            <div class="card-body" style="background-color: #ffffff">
+                                <div class="mb-3">
+                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Input Item Name/Code Here">
+                                </div>
+                                <div>
+                                    <button class="btn btn-outline-success" type="submit">Search</button>
+                                    <select class="form-select" id="validationCustom04" style="width: 175px; position: relative; top: -38px; left: 80px" required>
+                                        <option selected disabled value="">Name</option>
+                                        <option>Name 01</option>
+                                        <option>Name 02</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="main-btn" style="display: flex; position: relative; top: -230px; left: 1000px">
+                            <div id="addNewItem" style="margin-right: 10px;">
+                                <a href="customer_page.html#AddCus">
+                                    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">Add New Items</button>
+                                </a>
+                            </div>
+
+                            <div  id="viewAllItem" >
+                                <button type="button" class="btn btn-warning">View All Items</button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button type="button" class="btn btn-danger">Delete</button>
+                            <button type="button" class="btn btn-info">Details</button>
+                            <button type="button" class="btn btn-success">Clear</button>
+                        </div>
+                        <br> <br> <br>
+
+                        <div >
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Item Code</th>
+                                    <th scope="col">Item Name</th>
+                                    <th scope="col">Item Price</th>
+                                    <th scope="col">Item Quantity</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th scope="row">I001</th>
+                                    <td>Item 1</td>
+                                    <td>100.00</td>
+                                    <td>10</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">I002</th>
+                                    <td>Item 2</td>
+                                    <td>200.00</td>
+                                    <td>10</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">I002</th>
+                                    <td>Item 2</td>
+                                    <td>200.00</td>
+                                    <td>10</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header" style="background-color: #222223; color: white">
+                                <h5 class="modal-title" id="exampleModalLabel">Add New Item</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: red"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label"></label>
+                                    <h6 class="UnP">Item Code</h6>
+                                    <input type="text" class="form-control" id="exampleFormControlInput" placeholder="Enter Item Code">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label"></label>
+                                    <h6 class="UnP">Item Name</h6>
+                                    <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="Enter Item Name">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label"></label>
+                                    <h6 class="UnP">Item Price</h6>
+                                    <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="Enter Item Price">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label"></label>
+                                    <h6 class="UnP">Item Quantity</h6>
+                                    <input type="text" class="form-control" id="exampleFormControlInput4" placeholder="Enter Item Quantity">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger">Save</button>
+                                <button type="button" class="btn btn-warning">ReNew</button>
+                                <button type="button" class="btn btn-info">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <!-- Order Page-->
+    <section class="container-order" id="Order">
+        <div class="container">
+            <br><br>
+            <section>
+                <div class="form-floating mb-3" style="width: 112%; font-size: 40px; font-weight: 600; margin-left: 20px">
+                    <a class="navbar-brand" href="#">
+                        <img src="../HTML_CSS_Assignment_06/assets/icon/customers.png" alt="customer" style="width: 60px; height: 60px;">
+                        Order
+                    </a>
+                </div>
+            </section>
+
+            <section>
+                <div class="search" style="width: 1440px; margin-left: -80px; margin-right: 20px; justify-content: center;">
+                    <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+                        <div style="display: flex;">
+                            <div class="row" style="margin-right: 20px; margin-left: 20px;">
+                                <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="width: 400px; height: 400px">
+                                    <div class="modal-content">
+
+                                        <div class="modal-header" style="background-color: #222223; color: white">
+                                            <h5 class="modal-title" id="invice-detail">Invoice Details</h5>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="mb-3">
+                                                <label for="exampleFormControlInput" class="form-label"></label>
+                                                <h6 class="UnP">Order ID :</h6>
+                                                <input type="text" class="form-control" id="order-id" placeholder="O001" style="width: 170px">
+                                            </div>
+
+                                            <div class="mb-3" style="position: absolute; left: 180px; top: 0">
+                                                <label for="exampleFormControlInput" class="form-label"></label>
+                                                <h6 class="UnP">Date :</h6>
+                                                <input type="date" class="form-control" id="date" placeholder="07/06/2024" style="width: 170px;">
+                                            </div>
+
+                                            <div class="col-md-4" style="position: absolute; left: 0; top: 80px">
+                                                <label for="inputState" class="form-label"></label>
+                                                <h6 class="UnP">Customer :</h6>
+                                                <select id="inputState" class="form-select" style="width: 170px">
+                                                    <option selected>C001</option>
+                                                    <option>C002</option>
+                                                    <option>C003</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="mb-3" style="position: absolute; left: 180px; top: 80px">
+                                                <label for="exampleFormControlInput" class="form-label"></label>
+                                                <h6 class="UnP">CustomerId :</h6>
+                                                <input type="text" class="form-control" id="exampleFormControlInput13" placeholder="CustomerId" style="width: 170px;">
+                                            </div>
+
+                                            <div class="mb-3" style="position: absolute; left: 0; top: 160px">
+                                                <label for="exampleFormControlInput" class="form-label"></label>
+                                                <h6 class="UnP">Name :</h6>
+                                                <input type="text" class="form-control" id="exampleFormControlInput14" placeholder="CustomerId" style="width: 170px;">
+                                            </div>
+
+                                            <div class="mb-3" style="position: absolute; left: 180px; top: 160px">
+                                                <label for="exampleFormControlInput" class="form-label"></label>
+                                                <h6 class="UnP">Salary :</h6>
+                                                <input type="text" class="form-control" id="exampleFormControlInput15" placeholder="CustomerId" style="width: 170px;">
+                                            </div>
+
+                                            <div class="mb-3" style="position: absolute; left: 0; top: 240px">
+                                                <label for="exampleFormControlInput" class="form-label"></label>
+                                                <h6 class="UnP">Address :</h6>
+                                                <input type="text" class="form-control" id="exampleFormControlInput5" placeholder="Address" style="width: 170px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-right: 20px; margin-left: 20px;">
+                                <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="width: 550px; height: 400px">
+                                    <div class="modal-content">
+
+                                        <div class="modal-header" style="background-color: #222223; color: white">
+                                            <h5 class="modal-title" id="exampleModalLabel6">Item Select</h5>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <div class="col-md-4">
+                                                <label for="inputState" class="form-label"></label>
+                                                <h6 class="UnP">Item :</h6>
+                                                <select id="inputState1" class="form-select" style="width: 250px">
+                                                    <option selected>I001</option>
+                                                    <option>I002</option>
+                                                    <option>I003</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="mb-3" style="position: absolute; left: 260px; top: 0">
+                                                <label for="exampleFormControlInput" class="form-label"></label>
+                                                <h6 class="UnP">Item Code :</h6>
+                                                <input type="text" class="form-control" id="exampleFormControlInput8" placeholder="P002" style="width: 250px;">
+                                            </div>
+
+                                            <div class="mb-3" style="position: absolute; left: 0; top: 80px">
+                                                <label for="exampleFormControlInput" class="form-label"></label>
+                                                <h6 class="UnP">Item Name :</h6>
+                                                <input type="text" class="form-control" id="exampleFormControlInput9" placeholder="Ice-cream" style="width: 230px;">
+                                            </div>
+
+                                            <div class="mb-3" style="position: absolute; left: 250px; top: 80px">
+                                                <label for="exampleFormControlInput" class="form-label"></label>
+                                                <h6 class="UnP">Price :</h6>
+                                                <input type="text" class="form-control" id="exampleFormControlInput10" placeholder="150.00" style="width: 120px;">
+                                            </div>
+
+                                            <div class="mb-3" style="position: absolute; left: 390px; top: 80px">
+                                                <label for="exampleFormControlInput" class="form-label"></label>
+                                                <h6 class="UnP">Qty On Hand :</h6>
+                                                <input type="text" class="form-control" id="exampleFormControlInput11" placeholder="10" style="width: 120px;">
+                                            </div>
+
+
+                                            <div class="mb-3" style="position: absolute; left: 0; top: 160px">
+                                                <label for="exampleFormControlInput" class="form-label"></label>
+                                                <h6 class="UnP">Order Quantity :</h6>
+                                                <input type="text" class="form-control" id="exampleFormControlInput12" placeholder="Address" style="width: 510px;">
+                                            </div>
+
+                                            <div style="position: absolute; left: 410px; top: 280px;">
+                                                <button type="button" class="btn btn-danger" style="width: 100px">Add Item</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-right: 20px; margin-left: 20px;">
+                                <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="width: 350px; height: 400px">
+                                    <div class="modal-content">
+
+                                        <div class="mb-3">
+                                            <label for="exampleFormControlInput" class="form-label"></label>
+                                            <h6 class="UnP" style="/*background-color: #5d5b5b; width: 150px;*/ color: dodgerblue; font-size: 30px">Total :</h6>
+                                            <h6 class="UnP" style="/*background-color: #5d5b5b; width: 150px;*/ color: dodgerblue; position: absolute; left: 110px; top: 24px; font-size: 30px;">Rs: 1500</h6>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="exampleFormControlInput" class="form-label"></label>
+                                            <h6 class="UnP" style="/*background-color: #5d5b5b; width: 150px;*/ color: firebrick; font-size: 30px; position: absolute; left: 0; top: 70px;">Sub Total :</h6>
+                                            <h6 class="UnP" style="/*background-color: #5d5b5b; width: 150px;*/ color: firebrick; position: absolute; left: 150px; top: 70px; font-size: 30px;">Rs: 1500</h6>
+                                        </div>
+
+                                        <div class="modal-body">
+
+                                            <div class="mb-3" style="position: absolute; left: 0; top: -10px">
+                                                <label for="exampleFormControlInput" class="form-label"></label>
+                                                <h6 class="UnP">Cash :</h6>
+                                                <input type="text" class="form-control" id="exampleFormControlInput17" placeholder="Ice-cream" style="width: 180px;">
+                                            </div>
+
+                                            <div style="position: absolute; top: -10px; left: 205px;">
+                                                <label for="exampleFormControlInput" class="form-label"></label>
+                                                <h6 class="UnP">Discount :</h6>
+                                                <input type="number" class="spinner" id="exampleFormControlInput18" placeholder="00" style="width: 100px; height: 37px">
+                                            </div>
+
+                                            <div class="mb-3" style="position: absolute; left: 0; top: 70px">
+                                                <label for="exampleFormControlInput" class="form-label"></label>
+                                                <h6 class="UnP">Balance :</h6>
+                                                <input type="text" class="form-control" id="exampleFormControlInput16" placeholder="P002" style="width: 310px;">
+                                            </div>
+
+                                            <div style="position: absolute; left: 210px; top: 186px">
+                                                <button type="button" class="btn btn-success" style="width: 100px">Success</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Item Code</th>
+                                    <th scope="col">Item Name</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Total</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th scope="row">I001</th>
+                                    <td>Item Nam 1</td>
+                                    <td>200.00</td>
+                                    <td>20</td>
+                                    <td>10000.00</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">I002</th>
+                                    <td>Item Nam 2</td>
+                                    <td>400.00</td>
+                                    <td>40</td>
+                                    <td>20000.00</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">I003</th>
+                                    <td>Item Nam 3</td>
+                                    <td>500.00</td>
+                                    <td>50</td>
+                                    <td>30000.00</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </section>
+</section>
+
+</body>
+</html>
