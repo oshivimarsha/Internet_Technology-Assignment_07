@@ -92,7 +92,7 @@
 <section class="container-home" id="home_section">
     <section>
         <div class="card">
-            <img src="../HTML_CSS_Assignment_06/assets/icon/customers.png" class="card-img-top" alt="...">
+            <img src="../Internet_Technology-Assignment_07/assets/images/customer.png" class="card-img-top" alt="..." style="height: 300px">
             <div class="card-body">
                 <h5 class="card-title" style="font-size: 28px; font-weight: bold">Customer Count</h5>
                 <p class="card-text" style="font-weight: bold; font-size: 40px">10</p>
@@ -101,7 +101,7 @@
         </div>
 
         <div class="card">
-            <img src="../HTML_CSS_Assignment_06/assets/icon/item.png" class="card-img-top" alt="...">
+            <img src="../Internet_Technology-Assignment_07/assets/images/item.png" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title" style="font-size: 28px; font-weight: bold">Item Count</h5>
                 <p class="card-text" style="font-weight: bold; font-size: 40px">10</p>
@@ -110,7 +110,7 @@
         </div>
 
         <div class="card">
-            <img src="../HTML_CSS_Assignment_06/assets/icon/order.png" class="card-img-top" alt="...">
+            <img src="../Internet_Technology-Assignment_07/assets/images/order.png" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title" style="font-size: 28px; font-weight: bold">Order Count</h5>
                 <p class="card-text" style="font-weight: bold; font-size: 40px">10</p>
@@ -130,7 +130,7 @@
            <section>
                <div class="form-floating mb-3" style="width: 112%; font-size: 40px; font-weight: 600; margin-left: 20px">
                    <a class="navbar-brand" href="#">
-                       <img src="../HTML_CSS_Assignment_06/assets/icon/customers.png" alt="customer" style="width: 60px; height: 60px;">
+                       <img src="../Internet_Technology-Assignment_07/assets/images/customer.png" alt="customer" style="width: 60px; height: 60px;">
                        Customer
                    </a>
                </div>
@@ -160,15 +160,26 @@
                        </div>
                        <br>
 
-                       <div class="main-btn" style="display: flex; position: relative; top: -230px; left: 1000px">
-                           <div id="addNewCustomer" style="margin-right: 10px;">
-                               <a href="#Customer#AddCus">
-                                   <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">Add New Customer</button>
-                               </a>
+                       <!--<div class="main-btn" style="display: flex; position: relative; top: -230px; left: 1000px">
+                           <div id="newCustomerBTN">
+                               <a href="index.html#AddNewCustomerPage">
+                                   <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Add new Customer</button></a>
                            </div>
 
                            <div  id="viewAllCustomer" >
                                <button type="button" class="btn btn-warning">View All Customers</button>
+                           </div>
+                       </div>-->
+
+                       <div class="main-btn" style="display: flex; position: relative; top: -230px; left: 1000px">
+                           <div id="addNewItem1" style="margin-right: 10px;">
+                               <a href="index.html#AddCus">
+                                   <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">Add New Items</button>
+                               </a>
+                           </div>
+
+                           <div  id="viewAllItem1" >
+                               <button type="button" class="btn btn-warning">View All Items</button>
                            </div>
                        </div>
 
@@ -245,7 +256,7 @@
                            </div>
                            <div class="modal-footer">
                                <button type="button" class="btn btn-danger">Save</button>
-                               <button type="button" class="btn btn-warning">ReNew</button>
+                               <button type="button" class="btn btn-warning">Update</button>
                                <button type="button" class="btn btn-info">Close</button>
                            </div>
                        </div>
@@ -264,7 +275,7 @@
                 <div class="form-floating mb-3" style="position: relative">
                     <div class="form-floating mb-3" style="width: 112%; font-size: 40px; font-weight: 600; margin-left: 20px">
                         <a class="navbar-brand" href="#">
-                            <img src="../HTML_CSS_Assignment_06/assets/icon/customers.png" alt="customer" style="width: 60px; height: 60px;">
+                            <img src="../Internet_Technology-Assignment_07/assets/images/item.png" alt="customer" style="width: 60px; height: 60px;">
                             Item
                         </a>
                     </div>
@@ -297,7 +308,7 @@
 
                         <div class="main-btn" style="display: flex; position: relative; top: -230px; left: 1000px">
                             <div id="addNewItem" style="margin-right: 10px;">
-                                <a href="customer_page.html#AddCus">
+                                <a href="index.html#AddCus">
                                     <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">Add New Items</button>
                                 </a>
                             </div>
@@ -397,7 +408,7 @@
             <section>
                 <div class="form-floating mb-3" style="width: 112%; font-size: 40px; font-weight: 600; margin-left: 20px">
                     <a class="navbar-brand" href="#">
-                        <img src="../HTML_CSS_Assignment_06/assets/icon/customers.png" alt="customer" style="width: 60px; height: 60px;">
+                        <img src="../Internet_Technology-Assignment_07/assets/images/order.png" alt="customer" style="width: 60px; height: 60px;">
                         Order
                     </a>
                 </div>
@@ -616,50 +627,7 @@
 <!-- JQuery-->
 <script src="../Internet_Technology-Assignment_07/assets/lib/jquery-3.7.1.min.js"></script>
 
-    <script>
-        let home_nav = document.getElementById("home-nav");
-        let customer_nav = document.getElementById("customer-nav");
-        let item_nav = document.getElementById("item-nav");
-        let order_nav = document.getElementById("order-nav");
-
-        let home_section = document.getElementById("home_section");
-        let customer_section = document.getElementById("customer_section");
-        let item_section = document.getElementById("item_section");
-        let order_section = document.getElementById("order_section");
-
-        document.getElementById("customer_section").style.display = "none";
-        document.getElementById("item_section").style.display = "none";
-        document.getElementById("order_section").style.display="none";
-
-
-        home_nav.addEventListener('click', function () {
-            document.getElementById("home_section").style.display="block"
-            document.getElementById("customer_section").style.display = "none";
-            document.getElementById("item_section").style.display = "none";
-            document.getElementById("order_section").style.display="none";
-        });
-
-        customer_nav.addEventListener('click', function () {
-            document.getElementById("home_section").style.display="none"
-            document.getElementById("customer_section").style.display = "block";
-            document.getElementById("item_section").style.display = "none";
-            document.getElementById("order_section").style.display="none";
-        });
-
-        item_nav.addEventListener('click', function () {
-            document.getElementById("home_section").style.display="none"
-            document.getElementById("customer_section").style.display = "none";
-            document.getElementById("item_section").style.display = "block";
-            document.getElementById("order_section").style.display="none";
-        });
-
-        order_nav.addEventListener('click', function () {
-            document.getElementById("home_section").style.display="none"
-            document.getElementById("customer_section").style.display = "none";
-            document.getElementById("item_section").style.display = "none";
-            document.getElementById("order_section").style.display="block";
-        });
-    </script>
+<script src="script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
