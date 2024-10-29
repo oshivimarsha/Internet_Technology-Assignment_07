@@ -139,73 +139,60 @@
            <section>
                <form class="row g-3">
                    <div class="col-md-6">
-                       <label for="inputCId" class="form-label">Customer Id</label>
-                       <input type="CId" class="form-control" id="inputCId" placeholder="Customer Id">
+                       <label for="CId" class="form-label">Customer Id</label>
+                       <input type="CId" class="form-control" id="CId" placeholder="Customer Id">
                    </div>
                    <div class="col-md-6">
 
                    </div>
                    <div class="col-md-6">
-                       <label for="inputFirstName" class="form-label">First Name</label>
-                       <input type="firstName" class="form-control" id="inputFirstName" placeholder="First Name">
+                       <label for="FirstName" class="form-label">First Name</label>
+                       <input type="firstName" class="form-control" id="FirstName" placeholder="First Name">
                    </div>
                    <div class="col-md-6">
-                       <label for="inputLastName" class="form-label">Last Name</label>
-                       <input type="lastName" class="form-control" id="inputLastName" placeholder="Last Name">
+                       <label for="LastName" class="form-label">Last Name</label>
+                       <input type="lastName" class="form-control" id="LastName" placeholder="Last Name">
                    </div>
                    <div class="col-md-6">
-                       <label for="inputMobile" class="form-label">Mobile Number</label>
-                       <input type="mobile" class="form-control" id="inputMobile" placeholder="Mobile Number">
+                       <label for="Mobile" class="form-label">Mobile Number</label>
+                       <input type="mobile" class="form-control" id="Mobile" placeholder="Mobile Number">
                    </div>
                    <div class="col-md-6">
-                       <label for="inputEmail" class="form-label">Email</label>
-                       <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                       <label for="Email" class="form-label">Email</label>
+                       <input type="email" class="form-control" id="Email" placeholder="Email">
                    </div>
                    <div class="col-12">
-                       <label for="inputAddress" class="form-label">Address</label>
-                       <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                       <label for="Address" class="form-label">Address</label>
+                       <input type="text" class="form-control" id="Address" placeholder="Address">
                        <br>
                    </div>
 
 
                    <div class="col-12" style="display: flex; justify-content: center;">
-                       <button type="button" class="btn btn-success" style="margin-left: 10px; margin-right: 10px; width: 100px;">Save</button>
-                       <button type="button" class="btn btn-primary" style="margin-left: 10px; margin-right: 10px; width: 100px;">Update</button>
-                       <button type="button" class="btn btn-danger" style="margin-left: 10px; margin-right: 10px; width: 100px;">Delete</button>
-                       <button type="button" class="btn btn-warning" style="margin-left: 10px; margin-right: 10px; width: 100px;">Clear</button>
+                       <button type="button" class="btn btn-success" id="save_customer" style="margin-left: 10px; margin-right: 10px; width: 100px;">Save</button>
+                       <button type="button" class="btn btn-primary" id="update_customer" style="margin-left: 10px; margin-right: 10px; width: 100px;">Update</button>
+                       <button type="button" class="btn btn-danger" id="delete_customer" style="margin-left: 10px; margin-right: 10px; width: 100px;">Delete</button>
+                       <button type="button" class="btn btn-warning" id="clear_customer" style="margin-left: 10px; margin-right: 10px; width: 100px;">Clear</button>
                    </div>
                </form>
 
                <br><br><br>
                <div >
-                   <table class="table table-striped table-hover">
+                   <!-- Customer Table -->
+                   <h3 class="mt-5">Customer List</h3>
+                   <table class="table table-bordered table-striped mt-3">
                        <thead>
                        <tr>
-                           <th scope="col">Item Code</th>
-                           <th scope="col">Item Name</th>
-                           <th scope="col">Item Price</th>
-                           <th scope="col">Item Quantity</th>
+                           <th>Customer Id</th>
+                           <th>First Name</th>
+                           <th>Last Name</th>
+                           <th>Mobile Number</th>
+                           <th>Email</th>
+                           <th>Address</th>
                        </tr>
                        </thead>
-                       <tbody>
-                       <tr>
-                           <th scope="row">I001</th>
-                           <td>Item 1</td>
-                           <td>100.00</td>
-                           <td>10</td>
-                       </tr>
-                       <tr>
-                           <th scope="row">I002</th>
-                           <td>Item 2</td>
-                           <td>200.00</td>
-                           <td>10</td>
-                       </tr>
-                       <tr>
-                           <th scope="row">I002</th>
-                           <td>Item 2</td>
-                           <td>200.00</td>
-                           <td>10</td>
-                       </tr>
+                       <tbody id="customerTableBody">
+                       <!-- Customer rows will be added here -->
                        </tbody>
                    </table>
                </div>
@@ -232,154 +219,52 @@
             <section>
                 <form class="row g-3">
                     <div class="col-md-6">
-                        <label for="inputCId" class="form-label">Customer Id</label>
-                        <input type="CId" class="form-control" id="inputCId" placeholder="Customer Id">
+                        <label for="inputIId" class="form-label">Item Code</label>
+                        <input type="IId" class="form-control" id="inputIId" placeholder="Item code">
                     </div>
                     <div class="col-md-6">
-
+                        <label for="ItemName" class="form-label">Item Name</label>
+                        <input type="itemName" class="form-control" id="ItemName" placeholder="Item Name">
+                        <br>
                     </div>
                     <div class="col-md-6">
-                        <label for="inputFirstName" class="form-label">First Name</label>
-                        <input type="firstName" class="form-control" id="inputFirstName" placeholder="First Name">
+                        <label for="ItemPrice" class="form-label">Item Price</label>
+                        <input type="itemPrice" class="form-control" id="ItemPrice" placeholder="Item Price">
                     </div>
                     <div class="col-md-6">
-                        <label for="inputLastName" class="form-label">Last Name</label>
-                        <input type="lastName" class="form-control" id="inputLastName" placeholder="Last Name">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputMobile" class="form-label">Mobile Number</label>
-                        <input type="mobile" class="form-control" id="inputMobile" placeholder="Mobile Number">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputEmail" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-                    </div>
-                    <div class="col-12">
-                        <label for="inputAddress" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                        <label for="ItemQty" class="form-label">Item Quantity</label>
+                        <input type="itemQty" class="form-control" id="ItemQty" placeholder="Item Quantity">
                         <br>
                     </div>
 
 
                     <div class="col-12" style="display: flex; justify-content: center;">
-                        <button type="button" class="btn btn-success" style="margin-left: 10px; margin-right: 10px; width: 100px;">Save</button>
-                        <button type="button" class="btn btn-primary" style="margin-left: 10px; margin-right: 10px; width: 100px;">Update</button>
-                        <button type="button" class="btn btn-danger" style="margin-left: 10px; margin-right: 10px; width: 100px;">Delete</button>
-                        <button type="button" class="btn btn-warning" style="margin-left: 10px; margin-right: 10px; width: 100px;">Clear</button>
+                        <button type="button" class="btn btn-success" id="save_item" style="margin-left: 10px; margin-right: 10px; width: 100px;">Save</button>
+                        <button type="button" class="btn btn-primary" id="update_item" style="margin-left: 10px; margin-right: 10px; width: 100px;">Update</button>
+                        <button type="button" class="btn btn-danger" id="delete_item" style="margin-left: 10px; margin-right: 10px; width: 100px;">Delete</button>
+                        <button type="button" class="btn btn-warning" id="clean_item" style="margin-left: 10px; margin-right: 10px; width: 100px;">Clear</button>
                     </div>
                 </form>
 
                 <br><br><br>
                 <div >
-                    <table class="table table-striped table-hover">
+                    <!-- Item Table -->
+                    <h3 class="mt-5">Item List</h3>
+                    <table class="table table-bordered table-striped mt-3">
                         <thead>
                         <tr>
-                            <th scope="col">Item Code</th>
-                            <th scope="col">Item Name</th>
-                            <th scope="col">Item Price</th>
-                            <th scope="col">Item Quantity</th>
+                            <th>Item Code</th>
+                            <th>Item Name</th>
+                            <th>Item Price</th>
+                            <th>Item Qty</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row">I001</th>
-                            <td>Item 1</td>
-                            <td>100.00</td>
-                            <td>10</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">I002</th>
-                            <td>Item 2</td>
-                            <td>200.00</td>
-                            <td>10</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">I002</th>
-                            <td>Item 2</td>
-                            <td>200.00</td>
-                            <td>10</td>
-                        </tr>
+                        <tbody id="itemTableBody">
+                        <!-- Item rows will be added here -->
                         </tbody>
                     </table>
                 </div>
             </section>
-            <!--<section style="width: 1000px; margin-left: -80px; margin-right: 20px; justify-content: center;">
-                <div class="search" style="width: 100%; height: 100%">
-                    <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
-
-                        <div class="card text-bg-dark mb-3" style="max-width: 18rem;">
-                            <div class="card-header" style="font-size: 20px; background-color: #222223">Item Search</div>
-                            <div class="card-body" style="background-color: #ffffff">
-                                <div class="mb-3">
-                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Input Item Name/Code Here">
-                                </div>
-                                <div>
-                                    <button class="btn btn-outline-success" type="submit">Search</button>
-                                    <select class="form-select" id="validationCustom04" style="width: 175px; position: relative; top: -38px; left: 80px" required>
-                                        <option selected disabled value="">Name</option>
-                                        <option>Name 01</option>
-                                        <option>Name 02</option>
-                                    </select>
-                                </div>
-
-                            </div>
-                        </div>
-                        <br>
-
-                        <div class="main-btn" style="display: flex; position: relative; top: -230px; left: 1000px">
-                            <div id="addNewItem" style="margin-right: 10px;">
-                                <a href="index.html#AddCus">
-                                    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">Add New Items</button>
-                                </a>
-                            </div>
-
-                            <div  id="viewAllItem" >
-                                <button type="button" class="btn btn-warning">View All Items</button>
-                            </div>
-                        </div>
-
-                        <div>
-                            <button type="button" class="btn btn-danger">Delete</button>
-                            <button type="button" class="btn btn-info">Details</button>
-                            <button type="button" class="btn btn-success">Clear</button>
-                        </div>
-                        <br> <br> <br>
-
-                        <div >
-                            <table class="table table-striped table-hover">
-                                <thead>
-                                <tr>
-                                    <th scope="col">Item Code</th>
-                                    <th scope="col">Item Name</th>
-                                    <th scope="col">Item Price</th>
-                                    <th scope="col">Item Quantity</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <th scope="row">I001</th>
-                                    <td>Item 1</td>
-                                    <td>100.00</td>
-                                    <td>10</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">I002</th>
-                                    <td>Item 2</td>
-                                    <td>200.00</td>
-                                    <td>10</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">I002</th>
-                                    <td>Item 2</td>
-                                    <td>200.00</td>
-                                    <td>10</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </section>-->
         </div>
     </section>
 
