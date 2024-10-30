@@ -31,3 +31,20 @@ const loadItemTable = () => {
 }
 
 
+// select item table----------------------------------------------------------------------------------------------------
+$('#itemTableBody').on('click', 'tr', function () {
+    let index = $(this).index();
+    console.log(index);
+
+    // update
+    selected_item_index = $(this).index();
+
+    let item_data = item_arr[index];
+    console.log(item_data);
+
+    $('#ItemCode').val(item_data.itemCode);
+    $('#ItemName').val(item_data.itemName);
+    $('#ItemPrice').val(item_data.itemPrice);
+    $('#ItemQty').val(item_data.itemQty);
+
+});
