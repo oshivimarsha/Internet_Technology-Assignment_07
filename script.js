@@ -32,18 +32,10 @@ const cleanItemForm = () => {
 // update item------------------
 
 // delete item------------------
-$("#delete_item").on('click', function () {
-    item_arr.splice(selected_item_index, 1);
 
-    cleanItemForm();
-
-    loadItemTable();
-});
 
 // clear item------------------
-$("#clean_item").on('click', function () {
-   cleanItemForm();
-});
+
 
 
 
