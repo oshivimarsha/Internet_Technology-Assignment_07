@@ -93,3 +93,9 @@ $("#delete_customer").on('click', function () {
     //clean customer form
     cleanCustomerForm();
 });
+
+
+// clear Customer------------------
+$("#clear_customer").on('click', function () {
+    cleanCustomerForm();
+});
