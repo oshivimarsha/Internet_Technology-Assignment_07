@@ -28,26 +28,6 @@ const cleanItemForm = () => {
 
 
 
-$("#save_item").on('click', function () {
-    let item_code = $('#ItemCode').val();
-    let item_name = $('#ItemName').val();
-    let item_price = $('#ItemPrice').val();
-    let item_qty = $('#ItemQty').val();
-
-    let item = {
-        itemCode : item_code,
-        itemName : item_name,
-        itemPrice : item_price,
-        itemQty : item_qty
-    }
-
-    item_arr.push(item);
-
-    cleanItemForm();
-
-    loadItemTable();
-
-});
 
 // update item------------------
 let selected_item_index = null;
@@ -89,12 +69,7 @@ $("#clean_item").on('click', function () {
 
 
 
-const clean_form = () => {
-    $("#ItemCode").val('');
-    $("#ItemName").val('');
-    $("#ItemPrice").val('');
-    $("#ItemQty").val('');
-}
+
 
 
 

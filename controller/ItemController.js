@@ -1,20 +1,20 @@
-import ItemModel from "../models/itemModel";
+import ItemModel from "../models/itemModel.js";
 import {item_arr} from "../db/database.js";
 
 
 // generated id ----------------------------------------------------------------------------------------------------
 $(document).ready(function () {
-    $("#ItemCode").val(generatedId());
+    $("#ItemCode").val(generatedItemId());
 });
 
-let generatedId = function generatedId() {
+let generatedItemId = function generatedItemId() {
     console.log(item_arr.length + 1);
     let code = item_arr.length + 1;
     return "I00" + code;
 };
 
 let setItemCode = () => {
-    $("#ItemCode").val(generatedId())
+    $("#ItemCode").val(generatedItemId())
 };
 
 
@@ -48,3 +48,36 @@ $('#itemTableBody').on('click', 'tr', function () {
     $('#ItemQty').val(item_data.itemQty);
 
 });
+
+
+// save Item --------------------------------------------------------------------------------------------------------------
+$("#save_item").on('click', function () {
+    console.log("Click button");
+    let item_code = generatedItemId();
+    let item_name = $('#ItemName').val();
+    let item_price = $('#ItemPrice').val();
+    let item_qty = $('#ItemQty').val();
+
+    let item = {
+        itemCode : item_code,
+        itemName : item_name,
+        itemPrice : item_price,
+        itemQty : item_qty
+    }
+
+    item_arr.push(item);
+
+    cleanItemForm();
+
+    loadItemTable();
+
+});
+
+
+// clear data into the txt field -----------------------------------------------------------------------------------------------------
+const cleanItemForm = () => {
+    setItemCode();
+    $("#ItemName").val('');
+    $("#ItemPrice").val('');
+    $("#ItemQty").val('');
+}

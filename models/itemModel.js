@@ -8,35 +8,35 @@ export default class ItemModel {
     }
 
 
-    get item_code() {
+    get itemCode() {
         return this._item_code;
     }
 
-    set item_code(value) {
+    set itemCode(value) {
         this._item_code = value;
     }
 
-    get item_name() {
+    get itemName() {
         return this._item_name;
     }
 
-    set item_name(value) {
+    set itemName(value) {
         this._item_name = value;
     }
 
-    get item_price() {
+    get itemPrice() {
         return this._item_price;
     }
 
-    set item_price(value) {
+    set itemPrice(value) {
         this._item_price = value;
     }
 
-    get item_qty() {
+    get itemQty() {
         return this._item_qty;
     }
 
-    set item_qty(value) {
+    set itemQty(value) {
         this._item_qty = value;
     }
 }
