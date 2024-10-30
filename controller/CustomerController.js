@@ -81,3 +81,15 @@ $("#update_customer").on('click', function () {
     cleanCustomerForm();
 
 });
+
+
+// delete Customer------------------
+$("#delete_customer").on('click', function () {
+    customer_arr.splice(selected_customer_index,1)
+
+    // reload the table
+    loadCustomerTable();
+
+    //clean customer form
+    cleanCustomerForm();
+});
