@@ -2,15 +2,21 @@ import CustomerModel from "../models/customerModel.js";
 import {customer_arr} from "../db/database.js";
 
 
-// clear data into the txt field
-const cleanCustomerForm = () => {
-    $('#CId').val('');
-    $('#FirstName').val('');
-    $('#LastName').val('');
-    $('#Email').val('');
-    $('#Mobile').val('');
-    $('#Address').val('');
+$(document).ready(function (){
+    $("#CId").val(generatedId());
+});
+
+let generatedId = function generatedId(){
+    console.log(customer_arr.length + 1);
+    let id = customer_arr.length + 1;
+    return "C00" + id;
+
 }
+
+let setCustomerId = () => {
+    $("#CId").val(generatedId());
+}
+
 
 const loadCustomerTable = () => {
     // create table row
@@ -25,7 +31,8 @@ const loadCustomerTable = () => {
 
 // save Customer------------------
 $("#save_customer").on('click', function () {
-    let c_id = $('#CId').val();
+    console.log("Clicked button!!!");
+    let c_id = generatedId();
     let first_name = $('#FirstName').val();
     let last_name = $('#LastName').val();
     let mobile = $('#Mobile').val();
@@ -147,3 +154,13 @@ $('#customerTableBody').on('click', 'tr', function () {
     $('#Address').val(address);
 
 });
+
+// clear data into the txt field
+const cleanCustomerForm = () => {
+    setCustomerId();
+    $('#FirstName').val('');
+    $('#LastName').val('');
+    $('#Email').val('');
+    $('#Mobile').val('');
+    $('#Address').val('');
+}
