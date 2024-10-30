@@ -1,3 +1,7 @@
+import CustomerModel from "../models/customerModel.js";
+import {customer_arr} from "../db/database.js";
+
+
 // clear data into the txt field
 const cleanCustomerForm = () => {
     $('#CId').val('');
