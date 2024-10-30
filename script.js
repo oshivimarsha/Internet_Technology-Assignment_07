@@ -1,196 +1,140 @@
-let home_nav = document.getElementById("home-nav");
-let customer_nav = document.getElementById("customer-nav");
-let item_nav = document.getElementById("item-nav");
-let order_nav = document.getElementById("order-nav");
 
-let home_section = document.getElementById("home_section");
-let customer_section = document.getElementById("customer_section");
-let item_section = document.getElementById("item_section");
-let order_section = document.getElementById("order_section");
-
-document.getElementById("customer_section").style.display = "none";
-document.getElementById("item_section").style.display = "none";
-document.getElementById("order_section").style.display="none";
-
-
-home_nav.addEventListener('click', function () {
-    document.getElementById("home_section").style.display="block"
-    document.getElementById("customer_section").style.display = "none";
-    document.getElementById("item_section").style.display = "none";
-    document.getElementById("order_section").style.display="none";
-});
-
-customer_nav.addEventListener('click', function () {
-    document.getElementById("home_section").style.display="none"
-    document.getElementById("customer_section").style.display = "block";
-    document.getElementById("item_section").style.display = "none";
-    document.getElementById("order_section").style.display="none";
-});
-
-item_nav.addEventListener('click', function () {
-    document.getElementById("home_section").style.display="none"
-    document.getElementById("customer_section").style.display = "none";
-    document.getElementById("item_section").style.display = "block";
-    document.getElementById("order_section").style.display="none";
-});
-
-order_nav.addEventListener('click', function () {
-    document.getElementById("home_section").style.display="none"
-    document.getElementById("customer_section").style.display = "none";
-    document.getElementById("item_section").style.display = "none";
-    document.getElementById("order_section").style.display="block";
-});
 
 // -------------------------------------------- Customer Page --------------------------------------------------------------------
 
-let customer_arr = [];
 
-// clear data into the txt field
-const cleanCustomerForm = () => {
-    $('#CId').val('');
-    $('#FirstName').val('');
-    $('#LastName').val('');
-    $('#Email').val('');
-    $('#Mobile').val('');
-    $('#Address').val('');
+
+
+
+
+
+
+
+
+
+
+// -------------------------------------------- Customer Page --------------------------------------------------------------------
+// save item------------------
+
+
+
+const cleanItemForm = () => {
+    $('#ItemCode').val('');
+    $('#ItemName').val('');
+    $('#ItemPrice').val('');
+    $('#ItemQty').val('');
 }
 
-const loadCustomerTable = () => {
+const loadItemTable = () => {
     // create table row
-    $("#customerTableBody").empty();
-    customer_arr.map((item,index) => {
+    $("#itemTableBody").empty();
+    item_arr.map((item,index) => {
         console.log(item);
 
-        let data = `<tr> <td>${item.cId}</td> <td>${item.firstName}</td> <td>${item.lastName}</td> <td>${item.mobile}</td> <td>${item.email}</td> <td>${item.address}</td> </tr>`;
-        $("#customerTableBody").append(data);
+        let data = `<tr> <td>${item.itemCode}</td> <td>${item.itemName}</td> <td>${item.itemPrice}</td> <td>${item.itemQty}</td> </tr>`;
+        $("#itemTableBody").append(data);
     })
 }
 
-// save Customer------------------
-$("#save_customer").on('click', function () {
-    let c_id = $('#CId').val();
-    let first_name = $('#FirstName').val();
-    let last_name = $('#LastName').val();
-    let mobile = $('#Mobile').val();
-    let email = $('#Email').val();
-    let address = $('#Address').val();
 
-    let customer = {
-        cId : c_id,
-        firstName : first_name,
-        lastName : last_name,
-        mobile : mobile,
-        email : email,
-        address : address
+$("#save_item").on('click', function () {
+    let item_code = $('#ItemCode').val();
+    let item_name = $('#ItemName').val();
+    let item_price = $('#ItemPrice').val();
+    let item_qty = $('#ItemQty').val();
+
+    let item = {
+        itemCode : item_code,
+        itemName : item_name,
+        itemPrice : item_price,
+        itemQty : item_qty
     }
 
-    customer_arr.push(customer);
+    item_arr.push(item);
 
-    cleanCustomerForm();
+    cleanItemForm();
 
-    loadCustomerTable();
+    loadItemTable();
 
 });
 
-// update Customer------------------
+// update item------------------
+let selected_item_index = null;
 
-let selected_customer_index = null;
+$("#update_item").on('click', function () {
+    let item_code = $('#ItemCode').val();
+    let item_name = $('#ItemName').val();
+    let item_price = $('#ItemPrice').val();
+    let item_qty = $('#ItemQty').val();
 
-$("#update_customer").on('click', function () {
-    let c_id = $('#CId').val();
-    let first_name = $('#FirstName').val();
-    let last_name = $('#LastName').val();
-    let mobile = $('#Mobile').val();
-    let email = $('#Email').val();
-    let address = $('#Address').val();
-
-    function generate_id() {
-        return customer_arr.length = 1;
+    let item = {
+        itemCode : item_code,
+        itemName : item_name,
+        itemPrice : item_price,
+        itemQty : item_qty
     }
 
-    let customer = {
-        cId : c_id,
-        firstName : first_name,
-        lastName : last_name,
-        mobile : mobile,
-        email : email,
-        address : address
-    }
+    item_arr[selected_item_index] = item;
 
-    // update
-    customer_arr[selected_customer_index] = customer;
+    cleanItemForm();
 
-    // reload the table
-    loadCustomerTable();
-
-    // clear customer form
-    cleanCustomerForm();
+    loadItemTable();
 
 });
 
-// delete Customer------------------
-$("#delete_customer").on('click', function () {
-    customer_arr.splice(selected_customer_index,1)
+// delete item------------------
+$("#delete_item").on('click', function () {
+    item_arr.splice(selected_item_index, 1);
 
-    // reload the table
-    loadCustomerTable();
+    cleanItemForm();
 
-    //clean customer form
-    cleanCustomerForm();
+    loadItemTable();
 });
 
-// clear Customer------------------
-$("#clear_customer").on('click', function () {
-   cleanCustomerForm();
+// clear item------------------
+$("#clean_item").on('click', function () {
+   cleanItemForm();
 });
 
-$('#customerTableBody').on('click', 'tr', function () {
+$('#itemTableBody').on('click', 'tr', function () {
     let index = $(this).index();
     console.log(index);
 
-    //update
-    selected_customer_index = $(this).index();
+    // update
+    selected_item_index = $(this).index();
 
-    let customer_data = customer_arr[index];
-    console.log(customer_data);
+    let item_data = item_arr[index];
+    console.log(item_data);
 
-    $('#CId').val(customer_data.cId);
-    $('#FirstName').val(customer_data.firstName);
-    $('#LastName').val(customer_data.lastName);
-    $('#Email').val(customer_data.email);
-    $('#Mobile').val(customer_data.mobile);
-    $('#Address').val(customer_data.address);
+    $('#ItemCode').val(item_data.itemCode);
+    $('#ItemName').val(item_data.itemName);
+    $('#ItemPrice').val(item_data.itemPrice);
+    $('#ItemQty').val(item_data.itemQty);
 
-    let cId = customer_data.cId;
-    let fName = customer_data.firstName;
-    let lName = customer_data.lastName;
-    let email = customer_data.email;
-    let mobile = customer_data.mobile;
-    let address = customer_data.address;
+    let iCode = item_data.itemCode;
+    let iName = item_data.itemName;
+    let iPrice = item_data.itemPrice;
+    let iQty = item_data.itemQty;
 
     // get customer data
-    console.log("Customer Id : ",  customer_data.cId);
-    console.log("First Name : ",  customer_data.firstName);
-    console.log("Last Name : ",  customer_data.lastName);
-    console.log("Email : ",  customer_data.email);
-    console.log("Mobile : ",  customer_data.mobile);
-    console.log("Address : ",  customer_data.address);
+    console.log("Item Code : ",  item_data.itemCode);
+    console.log("Item Name : ",  item_data.itemName);
+    console.log("Item Price : ",  item_data.itemPrice);
+    console.log("Item Qty : ",  item_data.itemQty);
 
     // fill data into the form
-    $('#CId').val(cId);
-    $('#FirstName').val(fName);
-    $('#LastName').val(lName);
-    $('#Email').val(email);
-    $('#Mobile').val(mobile);
-    $('#Address').val(address);
+    $('#ItemCode').val(iCode);
+    $('#ItemName').val(iName);
+    $('#ItemPrice').val(iPrice);
+    $('#ItemQty').val(iQty);
 
+    const clean_form = () => {
+        $("#ItemCode").val('');
+        $("#ItemName").val('');
+        $("#ItemPrice").val('');
+        $("#ItemQty").val('');
+    }
 });
-
-
-
-
-
-
 
 
 
