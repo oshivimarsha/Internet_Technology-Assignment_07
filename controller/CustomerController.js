@@ -2,6 +2,7 @@ import CustomerModel from "../models/customerModel.js";
 import {customer_arr} from "../db/database.js";
 
 
+// generated id ----------------------------------------------------------------------------------------------------
 $(document).ready(function (){
     $("#CId").val(generatedId());
 });
@@ -17,6 +18,7 @@ let setCustomerId = () => {
     $("#CId").val(generatedId());
 }
 
+// load customer for table -------------------------------------------------------------------------------------------------------
 
 const loadCustomerTable = () => {
     // create table row
@@ -29,7 +31,30 @@ const loadCustomerTable = () => {
     })
 }
 
-// save Customer------------------
+
+
+// select customer table----------------------------------------------------------------------------------------------------
+$('#customerTableBody').on('click', 'tr', function () {
+    let index = $(this).index();
+    console.log(index);
+
+    //update
+    selected_customer_index = $(this).index();
+
+    let customer_data = customer_arr[index];
+    console.log(customer_data);
+
+    $('#CId').val(customer_data.cId);
+    $('#FirstName').val(customer_data.firstName);
+    $('#LastName').val(customer_data.lastName);
+    $('#Email').val(customer_data.email);
+    $('#Mobile').val(customer_data.mobile);
+    $('#Address').val(customer_data.address);
+
+
+});
+
+// save Customer--------------------------------------------------------------------------------------------------------------
 $("#save_customer").on('click', function () {
     console.log("Clicked button!!!");
     let c_id = generatedId();
@@ -57,7 +82,7 @@ $("#save_customer").on('click', function () {
 });
 
 
-// update Customer------------------
+// update Customer-------------------------------------------------------------------------------------------------------------
 
 let selected_customer_index = null;
 
@@ -94,7 +119,7 @@ $("#update_customer").on('click', function () {
 });
 
 
-// delete Customer------------------
+// delete Customer--------------------------------------------------------------------------------------------------------------
 $("#delete_customer").on('click', function () {
     customer_arr.splice(selected_customer_index,1)
 
@@ -106,56 +131,12 @@ $("#delete_customer").on('click', function () {
 });
 
 
-// clear Customer------------------
+// clear Customer--------------------------------------------------------------------------------------------------------------------
 $("#clear_customer").on('click', function () {
     cleanCustomerForm();
 });
 
-
-
-$('#customerTableBody').on('click', 'tr', function () {
-    let index = $(this).index();
-    console.log(index);
-
-    //update
-    selected_customer_index = $(this).index();
-
-    let customer_data = customer_arr[index];
-    console.log(customer_data);
-
-    $('#CId').val(customer_data.cId);
-    $('#FirstName').val(customer_data.firstName);
-    $('#LastName').val(customer_data.lastName);
-    $('#Email').val(customer_data.email);
-    $('#Mobile').val(customer_data.mobile);
-    $('#Address').val(customer_data.address);
-
-    let cId = customer_data.cId;
-    let fName = customer_data.firstName;
-    let lName = customer_data.lastName;
-    let email = customer_data.email;
-    let mobile = customer_data.mobile;
-    let address = customer_data.address;
-
-    // get customer data
-    console.log("Customer Id : ",  customer_data.cId);
-    console.log("First Name : ",  customer_data.firstName);
-    console.log("Last Name : ",  customer_data.lastName);
-    console.log("Email : ",  customer_data.email);
-    console.log("Mobile : ",  customer_data.mobile);
-    console.log("Address : ",  customer_data.address);
-
-    // fill data into the form
-    $('#CId').val(cId);
-    $('#FirstName').val(fName);
-    $('#LastName').val(lName);
-    $('#Email').val(email);
-    $('#Mobile').val(mobile);
-    $('#Address').val(address);
-
-});
-
-// clear data into the txt field
+// clear data into the txt field -----------------------------------------------------------------------------------------------------
 const cleanCustomerForm = () => {
     setCustomerId();
     $('#FirstName').val('');
