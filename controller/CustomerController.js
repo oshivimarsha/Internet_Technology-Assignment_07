@@ -1,5 +1,5 @@
 import CustomerModel from "../models/customerModel.js";
-import {customer_arr} from "../db/database.js";
+import {customer_arr, item_arr} from "../db/database.js";
 
 
 // generated id ----------------------------------------------------------------------------------------------------
@@ -204,7 +204,7 @@ $("#update_customer").on('click', function () {
         let timerInterval;
         Swal.fire({
             title: "Customer Update Successfully",
-            timer: 1000,
+            timer: 500,
             timerProgressBar: true,
             didOpen: () => {
                 Swal.showLoading();
@@ -232,36 +232,27 @@ $("#update_customer").on('click', function () {
 
 // delete Customer--------------------------------------------------------------------------------------------------------------
 $("#delete_customer").on('click', function () {
-    customer_arr.splice(selected_customer_index,1)
-
-    // reload the table
-    loadCustomerTable();
-
-    // Delete successfully
-    let timerInterval;
     Swal.fire({
-        title: "Customer Delete Successfully",
-        timer: 1000,
-        timerProgressBar: true,
-        didOpen: () => {
-            Swal.showLoading();
-            const timer = Swal.getPopup().querySelector("b");
-            timerInterval = setInterval(() => {
-                timer.textContent = `${Swal.getTimerLeft()}`;
-            }, 100);
-        },
-        willClose: () => {
-            clearInterval(timerInterval);
-        }
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
     }).then((result) => {
-        /* Read more about handling dismissals below */
-        if (result.dismiss === Swal.DismissReason.timer) {
-            console.log("");
+        if (result.isConfirmed) {
+            customer_arr.splice(selected_customer_index,1);
+            loadCustomerTable();
+            cleanCustomerForm();
+            setCustomerId();
+            Swal.fire({
+                title: "Deleted!",
+                text: "Customer has been deleted.",
+                icon: "success"
+            });
         }
     });
-
-    //clean customer form
-    cleanCustomerForm();
 });
 
 
