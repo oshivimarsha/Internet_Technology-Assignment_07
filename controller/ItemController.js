@@ -58,19 +58,66 @@ $("#save_item").on('click', function () {
     let item_price = $('#ItemPrice').val();
     let item_qty = $('#ItemQty').val();
 
-    let item = {
-        itemCode : item_code,
-        itemName : item_name,
-        itemPrice : item_price,
-        itemQty : item_qty
+    // validate
+    if (item_name.length===0) {
+        Swal.fire({
+            icon: "error",
+            title: "Oops... Invalid Item Name",
+            text: "Something went wrong!"
+        });
+    } else if (item_price.length===0) {
+        Swal.fire({
+            icon: "error",
+            title: "Oops... Invalid Item Price",
+            text: "Something went wrong!"
+        });
+    } else if (item_qty.length===0) {
+        Swal.fire({
+            icon: "error",
+            title: "Oops... Invalid Item Qty",
+            text: "Something went wrong!"
+        });
+    } else {
+        let item = new ItemModel(item_code, item_name, item_price, item_qty);
+
+        item_arr.push(item);
+
+        loadItemTable();
+
+        // Added successfully
+        let timerInterval;
+        Swal.fire({
+            title: "Item Added Successfully",
+            timer: 500,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading();
+                const timer = Swal.getPopup().querySelector("b");
+                timerInterval = setInterval(() => {
+                    timer.textContent = `${Swal.getTimerLeft()}`;
+                }, 100);
+            },
+            willClose: () => {
+                clearInterval(timerInterval);
+            }
+        }).then((result) => {
+            /!* Read more about handling dismissals below *!/
+            if (result.dismiss === Swal.DismissReason.timer) {
+                console.log("");
+            }
+        });
+
+        cleanItemForm();
+
     }
+
+  /*  let item = new ItemModel(item_code, item_name, item_price, item_qty);
 
     item_arr.push(item);
 
-    cleanItemForm();
-
     loadItemTable();
 
+    cleanItemForm();*/
 });
 
 
@@ -83,28 +130,98 @@ $("#update_item").on('click', function () {
     let item_price = $('#ItemPrice').val();
     let item_qty = $('#ItemQty').val();
 
-    let item = {
-        itemCode : item_code,
-        itemName : item_name,
-        itemPrice : item_price,
-        itemQty : item_qty
+
+    // validate
+    if (item_name.length===0) {
+        Swal.fire({
+            icon: "error",
+            title: "Oops... Invalid First Name",
+            text: "Something went wrong!"
+        });
+    } else if (item_qty.length===0) {
+        Swal.fire({
+            icon: "error",
+            title: "Oops... Invalid Last Name",
+            text: "Something went wrong!"
+        });
+    } else if (item_qty.length===0) {
+        Swal.fire({
+            icon: "error",
+            title: "Oops... Invalid Mobile",
+            text: "Something went wrong!"
+        });
+    } else {
+        let item = new ItemModel(item_code, item_name, item_price, item_qty)
+
+        // update
+        item_arr[selected_item_index] = item;
+
+        // reload the table
+        loadItemTable();
+
+        // Update successfully
+        let timerInterval;
+        Swal.fire({
+            title: "Item Update Successfully",
+            timer: 500,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading();
+                const timer = Swal.getPopup().querySelector("b");
+                timerInterval = setInterval(() => {
+                    timer.textContent = `${Swal.getTimerLeft()}`;
+                }, 100);
+            },
+            willClose: () => {
+                clearInterval(timerInterval);
+            }
+        }).then((result) => {
+            /* Read more about handling dismissals below */
+            if (result.dismiss === Swal.DismissReason.timer) {
+                console.log("");
+            }
+        });
+
+        cleanItemForm();
+
     }
 
-    item_arr[selected_item_index] = item;
 
-    cleanItemForm();
+    /*
+        let item = new ItemModel(item_code, item_name, item_price, item_qty)
 
-    loadItemTable();
+        item_arr[selected_item_index] = item;
+
+        cleanItemForm();
+
+        loadItemTable();
+    */
 
 });
 
 // delete Item-------------------------------------------------------------------------------------------------------------
 $("#delete_item").on('click', function () {
-    item_arr.splice(selected_item_index, 1);
-
-    cleanItemForm();
-
-    loadItemTable();
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            item_arr.splice(selected_item_index,1);
+            loadItemTable();
+            cleanItemForm();
+            setItemCode();
+            Swal.fire({
+                title: "Deleted!",
+                text: "Customer has been deleted.",
+                icon: "success"
+            });
+        }
+    });
 });
 
 
