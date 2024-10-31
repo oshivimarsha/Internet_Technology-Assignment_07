@@ -217,7 +217,7 @@ $("#delete_item").on('click', function () {
             setItemCode();
             Swal.fire({
                 title: "Deleted!",
-                text: "Customer has been deleted.",
+                text: "Item has been deleted.",
                 icon: "success"
             });
         }
