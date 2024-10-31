@@ -54,6 +54,21 @@ $('#customerTableBody').on('click', 'tr', function () {
 
 });
 
+
+//Validation ------------------------------------------------------------------------------------------------------------------
+const validateMobile = (mobile) => {
+    const sriLankanMobileRegex = /^(?:\+94|0)?7[0-9]{8}$/;
+    return sriLankanMobileRegex.test(mobile);
+}
+
+const validateEmail = (email) => {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
+}
+
+
+
+
 // save Customer--------------------------------------------------------------------------------------------------------------
 $("#save_customer").on('click', function () {
     console.log("Clicked button!!!");
@@ -64,20 +79,70 @@ $("#save_customer").on('click', function () {
     let email = $('#Email').val();
     let address = $('#Address').val();
 
-    let customer = {
-        cId : c_id,
-        firstName : first_name,
-        lastName : last_name,
-        mobile : mobile,
-        email : email,
-        address : address
+    // validate
+    if (first_name.length===0) {
+        Swal.fire({
+            icon: "error",
+            title: "Oops... Invalid First Name",
+            text: "Something went wrong!"
+        });
+    } else if (last_name.length===0) {
+        Swal.fire({
+            icon: "error",
+            title: "Oops... Invalid Last Name",
+            text: "Something went wrong!"
+        });
+    } else if (!validateMobile(mobile)) {
+        Swal.fire({
+            icon: "error",
+            title: "Oops... Invalid Mobile",
+            text: "Something went wrong!"
+        });
+    } else if (!validateEmail(email)) {
+        Swal.fire({
+            icon: "error",
+            title: "Oops... Invalid Email",
+            text: "Something went wrong!"
+        });
+    } else if (address.length===0) {
+        Swal.fire({
+            icon: "error",
+            title: "Oops... Invalid Address",
+            text: "Something went wrong!"
+        });
+    } else {
+        let customer = new CustomerModel(c_id, first_name, last_name, mobile, email, address);
+
+        customer_arr.push(customer);
+
+        loadCustomerTable();
+
+        // Added successfully
+        let timerInterval;
+        Swal.fire({
+            title: "Customer Added Successfully",
+            timer: 1000,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading();
+                const timer = Swal.getPopup().querySelector("b");
+                timerInterval = setInterval(() => {
+                    timer.textContent = `${Swal.getTimerLeft()}`;
+                }, 100);
+            },
+            willClose: () => {
+                clearInterval(timerInterval);
+            }
+        }).then((result) => {
+            /* Read more about handling dismissals below */
+            if (result.dismiss === Swal.DismissReason.timer) {
+                console.log("");
+            }
+        });
+
+        cleanCustomerForm();
+
     }
-
-    customer_arr.push(customer);
-
-    cleanCustomerForm();
-
-    loadCustomerTable();
 
 });
 
