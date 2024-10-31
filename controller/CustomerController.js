@@ -26,7 +26,7 @@ const loadCustomerTable = () => {
     customer_arr.map((item,index) => {
         console.log(item);
 
-        let data = `<tr> <td>${item.cId}</td> <td>${item.firstName}</td> <td>${item.lastName}</td> <td>${item.mobile}</td> <td>${item.email}</td> <td>${item.address}</td> </tr>`;
+        let data = `<tr> <td>${item.id}</td> <td>${item.firstName}</td> <td>${item.lastName}</td> <td>${item.mobile}</td> <td>${item.email}</td> <td>${item.address}</td> </tr>`;
         $("#customerTableBody").append(data);
     })
 }
@@ -44,7 +44,7 @@ $('#customerTableBody').on('click', 'tr', function () {
     let customer_data = customer_arr[index];
     console.log(customer_data);
 
-    $('#CId').val(customer_data.cId);
+    $('#CId').val(customer_data.id);
     $('#FirstName').val(customer_data.firstName);
     $('#LastName').val(customer_data.lastName);
     $('#Email').val(customer_data.email);
@@ -159,27 +159,73 @@ $("#update_customer").on('click', function () {
     let email = $('#Email').val();
     let address = $('#Address').val();
 
-    function generate_id() {
-        return customer_arr.length = 1;
+
+    // validate
+    if (first_name.length===0) {
+        Swal.fire({
+            icon: "error",
+            title: "Oops... Invalid First Name",
+            text: "Something went wrong!"
+        });
+    } else if (last_name.length===0) {
+        Swal.fire({
+            icon: "error",
+            title: "Oops... Invalid Last Name",
+            text: "Something went wrong!"
+        });
+    } else if (!validateMobile(mobile)) {
+        Swal.fire({
+            icon: "error",
+            title: "Oops... Invalid Mobile",
+            text: "Something went wrong!"
+        });
+    } else if (!validateEmail(email)) {
+        Swal.fire({
+            icon: "error",
+            title: "Oops... Invalid Email",
+            text: "Something went wrong!"
+        });
+    } else if (address.length===0) {
+        Swal.fire({
+            icon: "error",
+            title: "Oops... Invalid Address",
+            text: "Something went wrong!"
+        });
+    } else {
+        let customer = new CustomerModel(c_id, first_name, last_name, mobile, email, address);
+
+        // update
+        customer_arr[selected_customer_index] = customer;
+
+        // reload the table
+        loadCustomerTable();
+
+        // Update successfully
+        let timerInterval;
+        Swal.fire({
+            title: "Customer Update Successfully",
+            timer: 1000,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading();
+                const timer = Swal.getPopup().querySelector("b");
+                timerInterval = setInterval(() => {
+                    timer.textContent = `${Swal.getTimerLeft()}`;
+                }, 100);
+            },
+            willClose: () => {
+                clearInterval(timerInterval);
+            }
+        }).then((result) => {
+            /* Read more about handling dismissals below */
+            if (result.dismiss === Swal.DismissReason.timer) {
+                console.log("");
+            }
+        });
+
+        cleanCustomerForm();
+
     }
-
-    let customer = {
-        cId : c_id,
-        firstName : first_name,
-        lastName : last_name,
-        mobile : mobile,
-        email : email,
-        address : address
-    }
-
-    // update
-    customer_arr[selected_customer_index] = customer;
-
-    // reload the table
-    loadCustomerTable();
-
-    // clear customer form
-    cleanCustomerForm();
 
 });
 
@@ -190,6 +236,29 @@ $("#delete_customer").on('click', function () {
 
     // reload the table
     loadCustomerTable();
+
+    // Delete successfully
+    let timerInterval;
+    Swal.fire({
+        title: "Customer Delete Successfully",
+        timer: 1000,
+        timerProgressBar: true,
+        didOpen: () => {
+            Swal.showLoading();
+            const timer = Swal.getPopup().querySelector("b");
+            timerInterval = setInterval(() => {
+                timer.textContent = `${Swal.getTimerLeft()}`;
+            }, 100);
+        },
+        willClose: () => {
+            clearInterval(timerInterval);
+        }
+    }).then((result) => {
+        /* Read more about handling dismissals below */
+        if (result.dismiss === Swal.DismissReason.timer) {
+            console.log("");
+        }
+    });
 
     //clean customer form
     cleanCustomerForm();
