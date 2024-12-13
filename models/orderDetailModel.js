@@ -1,18 +1,11 @@
 export default class OrderDetailsModel{
-    constructor(orderId, itemId, qty ) {
-        this._orderId = orderId;
-        this._itemId =itemId;
+    constructor(itemId, description, unitPrice, qty, total ) {
+        this._itemId = itemId;
+        this._description = description;
+        this._unitPrice = unitPrice;
         this._qty = qty;
+        this._total = total;
 
-    }
-
-
-    get orderId() {
-        return this._orderId;
-    }
-
-    set orderId(value) {
-        this._orderId = value;
     }
 
     get itemId() {
@@ -23,11 +16,35 @@ export default class OrderDetailsModel{
         this._itemId = value;
     }
 
+    get description() {
+        return this._description;
+    }
+
+    set description(value) {
+        this._description = value;
+    }
+
+    get unitPrice() {
+        return this._unitPrice;
+    }
+
+    set unitPrice(value) {
+        this._unitPrice = value;
+    }
+
     get qty() {
         return this._qty;
     }
 
     set qty(value) {
         this._qty = value;
+    }
+
+    get total() {
+        return this._total;
+    }
+
+    set total(value) {
+        this._total = value;
     }
 }

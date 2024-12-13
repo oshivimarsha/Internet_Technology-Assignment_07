@@ -1,9 +1,12 @@
 export default class OrderModel{
-    constructor(id,date,total,cusId) {
+    constructor(id,cusId,itemId,description,quantity,total,) {
         this._id = id;
-        this._date = date;
-        this._total = total;
         this._cusId = cusId;
+        this._itemId = itemId;
+        this._description = description;
+        this._quantity = quantity;
+        this._total = total;
+
     }
 
 
@@ -15,13 +18,30 @@ export default class OrderModel{
         this._id = value;
     }
 
-    get date() {
-        return this._date;
+    get itemId() {
+        return this._itemId;
     }
 
-    set date(value) {
-        this._date = value;
+    set itemId(value) {
+        this._itemId = value;
     }
+
+    get description() {
+        return this._description;
+    }
+
+    set description(value) {
+        this._description = value;
+    }
+
+    get quantity() {
+        return this._quantity;
+    }
+
+    set quantity(value) {
+        this._quantity = value;
+    }
+
 
     get total() {
         return this._total;
